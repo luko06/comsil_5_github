@@ -1,0 +1,14 @@
+if [ $# = 0 ]
+then
+	echo Usage: phone searchfor [...searchfor]
+	echo "(You didn't tell me what you want to search for.)"
+
+
+elif [ $# = 1 ]
+then
+	egrep "$1" mydata.txt | awk -f display.awk
+else
+	data="$1|$2"
+	egrep "$data" mydata.txt | awk -f display.awk
+fi
+
